@@ -1,0 +1,17 @@
+name: "Demo"
+
+on: push
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Demo
+        uses: github/analyze@v3
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOCKEN: ${{ secrets.GITHUB_TOKEN }}
